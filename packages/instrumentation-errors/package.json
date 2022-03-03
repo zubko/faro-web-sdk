@@ -28,7 +28,7 @@
     "quality:lint:md": "markdownlint README.md",
     "quality:circular-deps": "madge --extensions js,jsx,ts,tsx --circular --ts-config=tsconfig.json ."
   },
-  "dependencies": {
+  "peerDependencies": {
     "@grafana/javascript-agent-core": "^0.0.0"
   }
 }

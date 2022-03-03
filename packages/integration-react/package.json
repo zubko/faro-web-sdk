@@ -33,14 +33,12 @@
     "quality:lint:md": "markdownlint README.md",
     "quality:circular-deps": "madge --extensions js,jsx,ts,tsx --circular --ts-config=tsconfig.json ."
   },
-  "dependencies": {
-    "@grafana/javascript-agent-core": "^0.0.0"
-  },
   "devDependencies": {
     "@types/react": "^17.0.38",
     "react": "^17.0.2"
   },
   "peerDependencies": {
-    "react": "^17.0.0"
+    "react": "^17.0.0",
+    "@grafana/javascript-agent-core": "^0.0.0"
   }
 }
