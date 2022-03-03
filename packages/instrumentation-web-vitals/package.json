@@ -32,6 +32,6 @@
     "web-vitals": "^2.1.4"
   },
   "peerDependencies": {
-    "@grafana/javascript-agent-core": "^0.0.0",
+    "@grafana/javascript-agent-core": "^0.0.0"
   }
 }
