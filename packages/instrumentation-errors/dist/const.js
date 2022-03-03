@@ -1,0 +1,25 @@
+export var primitiveUnhandledValue = 'Non-Error promise rejection captured with value:';
+export var primitiveUnhandledType = 'UnhandledRejection';
+export var domErrorType = 'DOMError';
+export var domExceptionType = 'DOMException';
+export var objectEventValue = 'Non-Error exception captured with keys:';
+export var newLineString = '\n';
+export var evalString = 'eval';
+export var unknownString = '?';
+export var atString = '@';
+export var chromeLineRegex = /^\s*at (?:(.*?) ?\()?((?:file|https?|blob|chrome-extension|address|native|eval|webpack|<anonymous>|[-a-z]+:|.*bundle|\/).*?)(?::(\d+))?(?::(\d+))?\)?\s*$/i;
+export var chromeEvalRegex = /\((\S*)::(\d+)::(\d+)\)/;
+export var chromeEvalString = 'eval';
+export var chromeAddressAtString = 'address at ';
+export var chromeAddressAtStringLength = chromeAddressAtString.length;
+export var msLineRegex = /^\s*at (?:((?:\[object object])?.+) )?\(?((?:file|ms-appx|https?|webpack|blob):.*?):(\d+)(?::(\d+))?\)?\s*$/i;
+export var firefoxLineRegex = /^\s*(.*?)(?:\((.*?)\))?(?:^|@)?((?:file|https?|blob|chrome|webpack|resource|moz-extension|capacitor).*?:\/.*?|\[native code]|[^@]*(?:bundle|\d+\.js)|\/[\w\-. /=]+)(?::(\d+))?(?::(\d+))?\s*$/i;
+export var firefoxEvalRegex = /(\S+) line (\d+)(?: > eval line \d+)* > eval/i;
+export var firefoxEvalString = ' > eval';
+export var opera10LineRegex = / line (\d+).*script (?:in )?(\S+)(?:: in function (\S+))?$/i;
+export var opera11LineRegex = / line (\d+), column (\d+)\s*(?:in (?:<anonymous function: ([^>]+)>|([^)]+))\((.*)\))? in (.*):\s*$/i;
+export var safariExtensionString = 'safari-extension';
+export var safariWebExtensionString = 'safari-web-extension';
+export var reactMinifiedRegex = /Minified React error #\d+;/i;
+export var valueTypeRegex = /^(?:[Uu]ncaught (?:exception: )?)?(?:((?:Eval|Internal|Range|Reference|Syntax|Type|URI|)Error): )?(.*)$/i;
+//# sourceMappingURL=const.js.map
