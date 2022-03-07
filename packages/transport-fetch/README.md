@@ -1,12 +1,12 @@
-# @grafana/javascript-agent-transport-fetch
+# @grafana/agent-transport-fetch
 
 Grafana JavaScript Agent browser package for sending the collected data to a specified URL using `fetch`.
 
 ## Installation
 
 ```ts
-import { initializeAgent, LogLevel } from '@grafana/javascript-agent-core';
-import getFetchTransport from '@grafana/javascript-agent-transport-fetch';
+import { initializeAgent, LogLevel } from '@grafana/agent-core';
+import getFetchTransport from '@grafana/agent-transport-fetch';
 
 const agent = initializeAgent({
   transports: [

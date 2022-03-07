@@ -11,20 +11,19 @@ which can be ran by following the [README.md file](https://github.com/grafana/gr
 
 ### Core
 
-[@grafana/javascript-agent-core](https://github.com/grafana/grafana-javascript-agent/tree/main/packages/core) is the
+[@grafana/agent-core](https://github.com/grafana/grafana-javascript-agent/tree/main/packages/core) is the
 main package that provides the core functionality of the agent. The [README.md](https://github.com/grafana/grafana-javascript-agent/tree/main/packages/core/README.md)
 file provides an overview of the architecture and the API of library.
 
 ### Instrumentations
 
-1. [@grafana/javascript-agent-instrumentation-console](https://github.com/grafana/grafana-javascript-agent/tree/main/packages/instrumentation-console)
+1. [@grafana/agent-instrumentation-console](https://github.com/grafana/grafana-javascript-agent/tree/main/packages/instrumentation-console)
    is a package for both, browsers and Node.js, which provides an automatic mechanism for collecting console events.
-1. [@grafana/javascript-agent-instrumentation-errors](https://github.com/grafana/grafana-javascript-agent/tree/main/packages/instrumentation-errors)
+1. [@grafana/agent-instrumentation-errors](https://github.com/grafana/grafana-javascript-agent/tree/main/packages/instrumentation-errors)
    is a browser package which provides an automatic mechanism for collecting unhandled exceptions and errors.
-1. [@grafana/javascript-agent-instrumentation-tracing](https://github.com/grafana/grafana-javascript-agent/tree/main/packages/instrumentation-tracing)
-   is a package for both, browsers and Node.js, which provides an automatic mechanism for tracing. FOR THE TIME BEING
-   THIS PACKAGE IS A PLACEHOLDER.
-1. [@grafana/javascript-agent-instrumentation-web-vitals](https://github.com/grafana/grafana-javascript-agent/tree/main/packages/instrumentation-web-vitals)
+1. [@grafana/agent-instrumentation-tracing-web](https://github.com/grafana/grafana-javascript-agent/tree/main/packages/instrumentation-tracing-web)
+   is a browser package which provides an automatic mechanism for tracing.
+1. [@grafana/agent-instrumentation-web-vitals](https://github.com/grafana/grafana-javascript-agent/tree/main/packages/instrumentation-web-vitals)
    is a browser package which collects [web vitals](https://web.dev/vitals/) metrics from the app.
 
 ### Meta

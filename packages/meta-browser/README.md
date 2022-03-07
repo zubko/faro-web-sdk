@@ -1,4 +1,4 @@
-# @grafana/javascript-agent-meta-browser
+# @grafana/agent-meta-browser
 
 Grafana JavaScript Agent browser package for collecting details about the browser, operating system and device type.
 
@@ -17,8 +17,8 @@ a console event happened.
 ## Installation
 
 ```ts
-import { initializeAgent } from '@grafana/javascript-agent-core';
-import browserMeta from '@grafana/javascript-agent-meta-browser';
+import { initializeAgent } from '@grafana/agent-core';
+import browserMeta from '@grafana/agent-meta-browser';
 
 const agent = initializeAgent({
   metas: [

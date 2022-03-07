@@ -1,5 +1,5 @@
-import { agent, allLogLevels, LogLevel } from '@grafana/javascript-agent-core';
-import type { Instrumentation } from '@grafana/javascript-agent-core';
+import { agent, allLogLevels, LogLevel } from '@grafana/agent-core';
+import type { Instrumentation } from '@grafana/agent-core';
 
 export interface ConsoleInstrumentationOptions {
   disabledLevels?: LogLevel[];
@@ -17,8 +17,9 @@ export default function getConsoleInstrumentation({
         /* eslint-disable-next-line no-console */
         console[level] = (...args) => {
           try {
-            agent.api.pushLog(args, level);
+            agent.api.pushLog(args, { level });
           } catch (err) {
+            // TODO: Add proper logging when debug is enabled
           } finally {
             agent.api.callOriginalConsoleMethod(level, ...args);
           }

@@ -1,5 +1,5 @@
-import { agent } from '@grafana/javascript-agent-core';
-import type { Instrumentation } from '@grafana/javascript-agent-core';
+import { agent } from '@grafana/agent-core';
+import type { Instrumentation } from '@grafana/agent-core';
 import { getCLS, getFCP, getFID, getLCP, getTTFB } from 'web-vitals';
 
 const map = {

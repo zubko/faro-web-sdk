@@ -1,4 +1,4 @@
-# @grafana/javascript-agent-instrumentation-console
+# @grafana/agent-instrumentation-console
 
 Grafana JavaScript Agent package for both, browsers and Node.js which provides an automatic mechanism for collecting
 console events.
@@ -9,8 +9,8 @@ Out of the box, all log levels except `log` and `debug` are captured, but they c
 ## Installation
 
 ```ts
-import { initializeAgent, LogLevel } from '@grafana/javascript-agent-core';
-import getConsoleInstrumentation from '@grafana/javascript-agent-instrumentation-console';
+import { initializeAgent, LogLevel } from '@grafana/agent-core';
+import getConsoleInstrumentation from '@grafana/agent-instrumentation-console';
 
 const agent = initializeAgent({
   instrumentations: [

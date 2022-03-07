@@ -1,12 +1,12 @@
-# @grafana/javascript-agent-transport-console
+# @grafana/agent-transport-console
 
 Grafana JavaScript Agent package for both, browsers and Node.js, which shows the collected data in the console.
 
 ## Installation
 
 ```ts
-import { initializeAgent, LogLevel } from '@grafana/javascript-agent-core';
-import getConsoleTransport from '@grafana/javascript-agent-transport-console';
+import { initializeAgent, LogLevel } from '@grafana/agent-core';
+import getConsoleTransport from '@grafana/agent-transport-console';
 
 const agent = initializeAgent({
   transports: [

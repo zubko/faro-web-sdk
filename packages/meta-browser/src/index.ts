@@ -1,4 +1,4 @@
-import type { Meta } from '@grafana/javascript-agent-core';
+import type { Meta } from '@grafana/agent-core';
 import { UAParser } from 'ua-parser-js';
 
 const browserMeta: Meta = () => {

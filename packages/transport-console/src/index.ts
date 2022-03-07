@@ -1,5 +1,5 @@
-import { agent, getTransportBody, LogLevel, prefixAgentMessage } from '@grafana/javascript-agent-core';
-import type { Transport } from '@grafana/javascript-agent-core';
+import { agent, getTransportBody, LogLevel, prefixAgentMessage } from '@grafana/agent-core';
+import type { Transport } from '@grafana/agent-core';
 
 export interface ConsoleTransportOptions {
   level?: LogLevel;

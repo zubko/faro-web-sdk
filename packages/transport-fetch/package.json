@@ -1,5 +1,5 @@
 {
-  "name": "@grafana/javascript-agent-transport-fetch",
+  "name": "@grafana/agent-transport-fetch",
   "version": "0.0.0",
   "description": "Grafana JavaScript Agent browser package for sending the collected data to a specified URL using fetch.",
   "license": "Apache-2.0",
@@ -29,6 +29,6 @@
     "quality:circular-deps": "madge --extensions js,jsx,ts,tsx --circular --ts-config=tsconfig.json ."
   },
   "dependencies": {
-    "@grafana/javascript-agent-core": "^0.0.0"
+    "@grafana/agent-core": "^0.0.0"
   }
 }

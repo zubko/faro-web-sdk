@@ -1,4 +1,4 @@
-# @grafana/javascript-agent-core
+# @grafana/agent-core
 
 Core package of Grafana JavaScript Agent.
 
@@ -8,7 +8,7 @@ logs etc. but it offers an API to capture them.
 ## Installation
 
 ```ts
-import { initializeAgent } from '@grafana/javascript-agent-core';
+import { initializeAgent } from '@grafana/agent-core';
 
 initializeAgent({
   // ...
@@ -36,7 +36,7 @@ global object (`window` in browsers and `global` in Node.js).
 
 ```ts
 // Browser/Node.js
-import { agent } from '@grafana/javascript-agent-core';
+import { agent } from '@grafana/agent-core';
 
 agent.api.pushLog(/* ... */);
 
@@ -53,20 +53,32 @@ The `api` property on the agent contains all the necessary methods to push new e
 
 ##### Exceptions
 
-- `pushException` - is a method to push an error/exception to the agent. It accepts a message as a mandatory parameter
-  and two optional ones: a `type` which by default is `error` and `stackFrames` which is an array of stack frames.
+- `pushException` - is a method to push an error/exception to the agent. It accepts a mandatory `message` parameter
+  and an optional one where you can set:
+
+  - `span` - the span where the exception has occurred. Default value: `undefined`.
+  - `stackFrames` - an array of stack frames. Default value: `[]`.
+  - `type` - the type of exception. Default value: `error`.
 
   ```ts
   agent.api.pushException('This is an error');
-  agent.api.pushException('This is an unhandled exception', 'unhandledException');
-  agent.api.pushException('This is an error with stack frames', 'error', [
-    {
-      filename: 'file.js',
-      function: 'myFunction',
-      colno: 120,
-      lineno: 80,
-    },
-  ]);
+
+  agent.api.pushException('This is an unhandled exception', { type: 'unhandledException' });
+
+  agent.api.pushException('This is an error with stack frames', {
+    stackFrames: [
+      {
+        filename: 'file.js',
+        function: 'myFunction',
+        colno: 120,
+        lineno: 80,
+      },
+    ],
+  });
+
+  agent.api.pushException('This is an error in a span', {
+    span: mySpan,
+  });
   ```
 
 ##### Logs
@@ -87,15 +99,22 @@ The `api` property on the agent contains all the necessary methods to push new e
 
   ```ts
   agent.api.pushLog(['This is a log', 'With another message']);
-  agent.api.pushLog(['This is a warning'], LogLevel.WARN);
-  agent.api.pushLog(['This is a log with context'], LogLevel.LOG, {
-    randomNumber: Math.random(),
+
+  agent.api.pushLog(['This is a warning'], { level: LogLevel.WARN });
+
+  agent.api.pushLog(['This is a log with context'], {
+    context: {
+      randomNumber: Math.random(),
+    },
   });
   ```
 
 ##### Measurements
 
-- `pushMeasurement` - is a method for registering metrics.
+- `pushMeasurement` - is a method for registering metrics. The method accepts a mandatory `payload` parameter and an
+  optional parameter for passing additional options:
+
+  - `span` - the span where the exception has occurred. Default value: `undefined`.
 
   ```ts
   agent.api.pushMeasurement({
@@ -104,6 +123,18 @@ The `api` property on the agent contains all the necessary methods to push new e
       my_custom_metric: Math.random(),
     },
   });
+
+  agent.api.pushMeasurement(
+    {
+      type: 'custom',
+      values: {
+        my_custom_metric: Math.random(),
+      },
+    },
+    {
+      span: mySpan,
+    }
+  );
   ```
 
 ##### Traces
@@ -116,15 +147,15 @@ Instrumentations are packages that leverage the agent API to provide automatic m
 just simple functions that are executed when the agent is initialized.
 
 Please note that the `core` package does not contain any instrumentations out of the box and they should be provided by
-external packages like [@grafana/javascript-agent-instrumentation-console](https://github.com/grafana/grafana-javascript-agent/tree/main/packages/instrumentation-console),
-[@grafana/javascript-agent-instrumentation-errors](https://github.com/grafana/grafana-javascript-agent/tree/main/packages/instrumentation-errors),
-[@grafana/javascript-agent-instrumentation-tracing](https://github.com/grafana/grafana-javascript-agent/tree/main/packages/instrumentation-tracing)
-and [@grafana/javascript-agent-instrumentation-web-vitals](https://github.com/grafana/grafana-javascript-agent/tree/main/packages/instrumentation-web-vitals).
+external packages like [@grafana/agent-instrumentation-console](https://github.com/grafana/grafana-javascript-agent/tree/main/packages/instrumentation-console),
+[@grafana/agent-instrumentation-errors](https://github.com/grafana/grafana-javascript-agent/tree/main/packages/instrumentation-errors),
+[@grafana/agent-instrumentation-tracing-web](https://github.com/grafana/grafana-javascript-agent/tree/main/packages/instrumentation-tracing-web)
+and [@grafana/agent-instrumentation-web-vitals](https://github.com/grafana/grafana-javascript-agent/tree/main/packages/instrumentation-web-vitals).
 
 You can also write your own instrumentations:
 
 ```ts
-import { agent, initializeAgent } from '@grafana/javascript-agent-core';
+import { agent, initializeAgent } from '@grafana/agent-core';
 
 initializeAgent({
   instrumentations: [

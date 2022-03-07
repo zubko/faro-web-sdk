@@ -1,5 +1,5 @@
-import { isDomError, isDomException, isError, isErrorEvent, isEvent, isObject } from '@grafana/javascript-agent-core';
-import type { ExceptionStackFrame } from '@grafana/javascript-agent-core';
+import { isDomError, isDomException, isError, isErrorEvent, isEvent, isObject } from '@grafana/agent-core';
+import type { ExceptionStackFrame } from '@grafana/agent-core';
 
 import { domErrorType, domExceptionType, objectEventValue } from './const';
 import { getStackFramesFromError } from './stackFrames';

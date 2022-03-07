@@ -1,5 +1,5 @@
-import type { ExceptionStackFrame } from '@grafana/javascript-agent-core';
-import { isNumber } from '@grafana/javascript-agent-core';
+import type { ExceptionStackFrame } from '@grafana/agent-core';
+import { isNumber } from '@grafana/agent-core';
 
 import {
   atString,

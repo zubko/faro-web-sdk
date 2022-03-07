@@ -1,4 +1,4 @@
-# @grafana/javascript-agent-meta-page
+# @grafana/agent-meta-page
 
 Grafana JavaScript Agent browser package for collecting details about the current page (i.e. the URL, page title etc.).
 
@@ -8,8 +8,8 @@ a console event happened.
 ## Installation
 
 ```ts
-import { initializeAgent } from '@grafana/javascript-agent-core';
-import pageMeta from '@grafana/javascript-agent-meta-page';
+import { initializeAgent } from '@grafana/agent-core';
+import pageMeta from '@grafana/agent-meta-page';
 
 const agent = initializeAgent({
   metas: [

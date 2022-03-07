@@ -22,7 +22,7 @@
       "prepend": false
     },
     {
-      "path": "../packages/instrumentation-tracing/tsconfig.json",
+      "path": "../packages/instrumentation-tracing-web/tsconfig.json",
       "prepend": false
     },
     {

@@ -3,12 +3,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@grafana/javascript-agent-*": ["*/src"],
+      "@grafana/agent-*": ["*/src"],
       "#core/*": ["core/src/*"],
       "#demo/*": ["demo/src/*"],
       "#instrumentation-console/*": ["instrumentation-console/src/*"],
       "#instrumentation-errors/*": ["instrumentation-errors/src/*"],
-      "#instrumentation-tracing/*": ["instrumentation-tracing/src/*"],
+      "#instrumentation-tracing-web/*": ["instrumentation-tracing-web/src/*"],
       "#instrumentation-web-vitals/*": ["instrumentation-web-vitals/src/*"],
       "#integration-angular/*": ["integration-angular/src/*"],
       "#integration-react/*": ["integration-react/src/*"],

@@ -1,22 +1,23 @@
-import { initializeAgent } from '@grafana/javascript-agent-core';
-import getConsoleInstrumentation from '@grafana/javascript-agent-instrumentation-console';
-import errorsInstrumentation from '@grafana/javascript-agent-instrumentation-errors';
-import tracingInstrumentation from '@grafana/javascript-agent-instrumentation-tracing';
-import webVitalsInstrumentation from '@grafana/javascript-agent-instrumentation-web-vitals';
-import browserMeta from '@grafana/javascript-agent-meta-browser';
-import pageMeta from '@grafana/javascript-agent-meta-page';
-import getFetchTransport from '@grafana/javascript-agent-transport-fetch';
+import { initializeAgent } from '@grafana/agent-core';
+import getConsoleInstrumentation from '@grafana/agent-instrumentation-console';
+import errorsInstrumentation from '@grafana/agent-instrumentation-errors';
+import webTracingInstrumentation from '@grafana/agent-instrumentation-tracing-web';
+import webVitalsInstrumentation from '@grafana/agent-instrumentation-web-vitals';
+import browserMeta from '@grafana/agent-meta-browser';
+import pageMeta from '@grafana/agent-meta-page';
+import getConsoleTransport from '@grafana/agent-transport-console';
+import getFetchTransport from '@grafana/agent-transport-fetch';
 
 const agent = initializeAgent({
   instrumentations: [
     getConsoleInstrumentation(),
     errorsInstrumentation,
-    tracingInstrumentation,
+    webTracingInstrumentation,
     webVitalsInstrumentation,
   ],
   metas: [browserMeta, pageMeta],
   transports: [
-    getConsoleInstrumentation(),
+    getConsoleTransport(),
     getFetchTransport({
       url: 'http://localhost:8080/collect',
       debug: true,

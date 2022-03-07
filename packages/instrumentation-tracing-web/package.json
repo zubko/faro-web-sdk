@@ -1,14 +1,14 @@
 {
-  "name": "@grafana/javascript-agent-instrumentation-tracing",
+  "name": "@grafana/agent-instrumentation-tracing-web",
   "version": "0.0.0",
-  "description": "Grafana JavaScript Agent package for both, browsers and Node.js, which provides an automatic mechanism for tracing.",
+  "description": "Grafana JavaScript Agent package which provides an automatic mechanism for tracing.",
   "license": "Apache-2.0",
   "author": "Grafana Labs",
   "homepage": "https://github.com/grafana/grafana-javascript-agent",
   "repository": {
     "type": "git",
     "url": "https://github.com/grafana/grafana-javascript-agent.git",
-    "directory": "packages/instrumentation-tracing"
+    "directory": "packages/instrumentation-tracing-web"
   },
   "type": "module",
   "main": "dist/index.js",
@@ -29,6 +29,6 @@
     "quality:circular-deps": "madge --extensions js,jsx,ts,tsx --circular --ts-config=tsconfig.json ."
   },
   "dependencies": {
-    "@grafana/javascript-agent-core": "^0.0.0"
+    "@grafana/agent-core": "^0.0.0"
   }
 }

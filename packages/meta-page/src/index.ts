@@ -1,4 +1,4 @@
-import type { Meta } from '@grafana/javascript-agent-core';
+import type { Meta } from '@grafana/agent-core';
 
 const pageMeta: Meta = () => ({
   page: () => ({

@@ -1,4 +1,4 @@
-# @grafana/javascript-agent-instrumentation-web-vitals
+# @grafana/agent-instrumentation-web-vitals
 
 Grafana JavaScript Agent browser package which collects [web vitals](https://web.dev/vitals/) metrics from the app.
 
@@ -17,8 +17,8 @@ Collected data and browser compatibility:
 ## Installation
 
 ```ts
-import { initializeAgent, LogLevel } from '@grafana/javascript-agent-core';
-import webVitalsInstrumentation from '@grafana/javascript-agent-instrumentation-web-vitals';
+import { initializeAgent, LogLevel } from '@grafana/agent-core';
+import webVitalsInstrumentation from '@grafana/agent-instrumentation-web-vitals';
 
 const agent = initializeAgent({
   instrumentations: [

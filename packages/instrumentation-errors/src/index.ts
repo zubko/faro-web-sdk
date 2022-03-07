@@ -1,4 +1,4 @@
-import type { Instrumentation } from '@grafana/javascript-agent-core';
+import type { Instrumentation } from '@grafana/agent-core';
 
 import { registerOnerror } from './registerOnerror';
 import { registerOnunhandledrejection } from './registerOnunhandledrejection';
