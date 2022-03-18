@@ -29,3 +29,15 @@ const agent = initializeAgent({
 });
 
 agent.api.pushLog(['Manual event from initialized agent']);
+
+import { registerInstrumentations } from '@opentelemetry/instrumentation';
+import { DocumentLoadInstrumentation } from '@opentelemetry/instrumentation-document-load';
+import { ConsoleSpanExporter, SimpleSpanProcessor } from '@opentelemetry/sdk-trace-base';
+import { WebTracerProvider } from '@opentelemetry/sdk-trace-web';
+
+const provider = new WebTracerProvider();
+provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
+
+registerInstrumentations({
+  instrumentations: [new DocumentLoadInstrumentation()],
+});
