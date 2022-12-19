@@ -4,7 +4,7 @@ import { initializeInstrumentations } from './instrumentations';
 import { initializeInternalLogger } from './internalLogger';
 import { initializeMetas } from './metas';
 import type { Faro } from './sdk';
-import { isInternalFaroOnGlobalObject, registerFaro } from './sdk';
+import { faro, isInternalFaroOnGlobalObject, registerFaro, setInstrumentationsOnFaro } from './sdk';
 import { initializeTransports } from './transports';
 import { initializeUnpatchedConsole } from './unpatchedConsole';
 
@@ -30,7 +30,7 @@ export function initializeFaro(config: Config): Faro {
     api.setSession(config.session);
   }
 
-  const faro = registerFaro(internalLogger, {
+  const partialFaro = registerFaro(internalLogger, {
     api,
     config,
     internalLogger,
@@ -39,8 +39,11 @@ export function initializeFaro(config: Config): Faro {
     transports,
     unpatchedConsole,
     unpause: transports.unpause,
-    instrumentations: initializeInstrumentations(internalLogger, config),
   });
+
+  const instrumentations = initializeInstrumentations(internalLogger, config, partialFaro);
+
+  setInstrumentationsOnFaro(instrumentations);
 
   // make sure Faro is initialized before initializing instrumentations
   faro.instrumentations.add(...config.instrumentations);

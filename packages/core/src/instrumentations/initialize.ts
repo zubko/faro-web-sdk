@@ -1,8 +1,13 @@
 import type { Config } from '../config';
 import type { InternalLogger } from '../internalLogger';
+import type { Faro } from '../sdk';
 import type { Instrumentation, Instrumentations } from './types';
 
-export function initializeInstrumentations(internalLogger: InternalLogger, _config: Config): Instrumentations {
+export function initializeInstrumentations(
+  internalLogger: InternalLogger,
+  _config: Config,
+  partialFaro: Omit<Faro, 'instrumentations'>
+): Instrumentations {
   internalLogger.debug('Initializing instrumentations');
 
   const instrumentations: Instrumentation[] = [];
@@ -23,7 +28,10 @@ export function initializeInstrumentations(internalLogger: InternalLogger, _conf
         return;
       }
 
+      newInstrumentation.faro = partialFaro as Faro;
+
       instrumentations.push(newInstrumentation);
+
       newInstrumentation.initialize();
     });
   };

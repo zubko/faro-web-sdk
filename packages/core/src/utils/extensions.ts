@@ -6,6 +6,7 @@ export interface Extension {
   readonly version: string;
 
   get faro(): Faro;
+  set faro(faro: Faro);
 
   logDebug(...args: unknown[]): void;
   logInfo(...args: unknown[]): void;
@@ -17,8 +18,14 @@ export abstract class BaseExtension implements Extension {
   abstract readonly name: string;
   abstract readonly version: string;
 
+  private internalFaro: Faro = faro;
+
+  set faro(faro) {
+    this.internalFaro = faro;
+  }
+
   get faro(): Faro {
-    return faro;
+    return this.internalFaro;
   }
 
   logDebug(...args: unknown[]): void {
