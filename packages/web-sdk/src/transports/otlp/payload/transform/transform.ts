@@ -1,8 +1,8 @@
 import type { IKeyValue } from '@opentelemetry/otlp-transformer';
 import {
-  SemanticAttributes,
-  SemanticResourceAttributes,
-  TelemetrySdkLanguageValues,
+  SemanticAttributesWeb as SemanticAttributes,
+  SemanticResourceAttributesWeb as SemanticResourceAttributes,
+  SemanticResourceAttributesValuesWeb as SemanticResourceAttributeValues,
 } from '@opentelemetry/semantic-conventions';
 
 import {
@@ -61,7 +61,10 @@ export function initLogsTransform(internalLogger: InternalLogger): LogsTransform
         toAttribute(SemanticResourceAttributes.TELEMETRY_SDK_NAME, sdk?.name),
         toAttribute(SemanticResourceAttributes.TELEMETRY_SDK_VERSION, sdk?.version),
         Boolean(sdk)
-          ? toAttribute(SemanticResourceAttributes.TELEMETRY_SDK_LANGUAGE, TelemetrySdkLanguageValues.WEBJS)
+          ? toAttribute(
+              SemanticResourceAttributes.TELEMETRY_SDK_LANGUAGE,
+              SemanticResourceAttributeValues.TELEMETRY_SDK_LANGUAGE_WEBJS
+            )
           : undefined,
 
         toAttribute(SemanticResourceAttributes.SERVICE_NAME, app?.name),
