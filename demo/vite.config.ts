@@ -1,12 +1,12 @@
 import react from '@vitejs/plugin-react';
-import { defineConfig, loadEnv } from 'vite';
 import { visualizer } from 'rollup-plugin-visualizer';
+import { defineConfig, loadEnv } from 'vite';
 
 import { getEnvConfig, getPublicEnvConfig } from './src/common';
 
 export default defineConfig(({ mode }) => {
   return {
-    plugins: [react(), visualizer()],
+    plugins: [react(), visualizer({ open: true, template: 'treemap' })],
     server: {
       watch: {
         awaitWriteFinish: true,
