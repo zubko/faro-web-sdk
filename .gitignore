@@ -30,3 +30,6 @@ yarn-error.log*
 # App plugin
 infra/grafana/plugins/
 infra/grafana/plugins-provisioning/*.yaml
+
+# Ignore local overrides for make-docs procedure.
+docs/variables.mk.local
