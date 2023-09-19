@@ -1,6 +1,8 @@
 # Changelog
 
-## Next
+## 1.2.1
+
+- Add: Experimental package for XMLHttpRequest instrumentation. (#239)
 
 ## 1.2.0
 
