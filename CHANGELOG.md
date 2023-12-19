@@ -4,6 +4,8 @@
 
 - chore (`@grafana/faro-web-sdk`): change storage key prefix for faro session to use reverse domain
   notation (#432)
+- fix (`@grafana/faro-web-sdk`): instrument navigation and resource timings and calculate common
+  metrics used by Faro (#434)
 
 ## 1.3.5
 
